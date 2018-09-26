@@ -1,0 +1,54 @@
+{
+  "name": "micro-frontends",
+  "version": "0.0.1",
+  "description": "A library to work with micro frontends.",
+  "author": "Thiago da Rosa de Bustamante <thiago@cruxframework.org>",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "Web components",
+    "micro frontend"
+  ],
+  "main": "./dist/micro-frontend.js",
+  "typings": "./dist/micro-frontend.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --env.test --port 8001 --devtool=inline-source-map --debug",
+    "build": "npm run clean && npm run webpack",
+    "clean": "rimraf dist",
+    "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
+    "prepublish": "npm run build",
+    "pretest": "cross-env NODE_ENV=test npm build && npm run lint",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/wdio ./test/wdio.conf.js",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "@types/node": "^10.10.0",
+    "cross-env": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "source-map-support": "^0.5.9",
+    "ts-loader": "^5.1.1",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.19.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagobustamante/micro-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thiagobustamante/micro-frontend/issues"
+  },
+  "directories": {
+    "lib": "dist"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.5",
+    "tslib": "^1.9.3",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
