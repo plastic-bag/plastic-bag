@@ -1,31 +1,38 @@
-var path = require("path");
-var webpack = require("webpack");
+var path = require('path');
+var webpack = require('webpack');
 module.exports = {
   mode: 'production',
   context: __dirname + '/src',
   entry: {
-    'lib': ['./micro-frontend.ts', './injectors/script/index.ts', './injectors/iframe/index.ts', './injectors/html-fragment/index.ts']
+    lib: [
+      './micro-frontend.ts',
+      './injectors/script/index.ts',
+      './injectors/iframe/index.ts',
+      './injectors/html-fragment/index.ts',
+    ],
   },
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "[name].js",
-    chunkFilename: "[name].chunk.js"
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: [{
-          loader: 'ts-loader'
-        }]
-      }
-    ]
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+    ],
   },
   devServer: {
-    contentBase: "./",
-    inline: true
+    contentBase: './',
+    inline: true,
   },
   resolve: {
-    extensions: ['.ts', '.js', '.webpack.js', '.web.js']
-  }
+    extensions: ['.ts', '.js', '.webpack.js', '.web.js'],
+  },
 };
