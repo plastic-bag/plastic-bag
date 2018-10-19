@@ -16,6 +16,7 @@
     "start": "webpack-dev-server --env.test --port 8001 --devtool=inline-source-map --debug",
     "build": "npm run clean && npm run webpack",
     "clean": "rimraf dist",
+    "format": "prettier --write '{webpack*.js,{src,test}/**/*.{ts,js}}'",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "prepublish": "npm run build",
     "pretest": "cross-env NODE_ENV=test npm build && npm run lint",
