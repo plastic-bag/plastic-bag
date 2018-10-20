@@ -1,55 +1,54 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <script src="./webcomponents-lite.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/bulma.css">
+    <script src="./assets/webcomponents-lite.js"></script>
     <script type="text/javascript" src="../../lib.js"></script>
-    <style>
-        mf-loader .content {
-                width: 100%;
-                height: 300px;
-            }
-        </style>
+    <title>Cinema App</title>
 </head>
 
 <body>
-    <script type="text/javascript">
-        function changeView2() {
-            var panel = document.getElementById('swapPanel2');
-            panel.swapTo(createRandomDiv2());
-        }
-
-        function createRandomDiv2() {
-            var height = 200 + Math.random() * 100;
-            var div = document.createElement("div");
-            var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
-            var bgColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-            div.style.width = "100%";
-            div.style.height = height;
-            div.style.border = "solid 3px " + color;
-            div.style.backgroundColor = bgColor;
-            return div;
-        }             
-    </script>
-    <button onclick="changeView2()">Trocar Panel</button>
-
-    <mf-loader src="http://localhost:8000/dist/react.js" type="script" onloaded="alert('123')">
-        <div id="munta-aqui" data-order="123"></div>
-    </mf-loader>
-
-    <mf-loader src="http://localhost:8000/dist/crux-components-desktop.js" type="script" onloaded="alert('123')">
-        <crux-swap-panel id="swapPanel2" height="260px" animation="slideLeft" animationOrder="parallel"
-            animationDuration="750">
-            <div style="width: 100%; height: 250px; border: solid 2px red">Inicial Element</div>
-        </crux-swap-panel>
-    </mf-loader>
-
-    <mf-loader src="http://localhost:8000/test/html/crux-swap-panel.html?order-id=" type="html-fragment" onloaded="alert('1234')">
-    </mf-loader>
-
-    <mf-loader src="http://localhost:8000/test/html/crux-swap-panel.html?order=123" type="iframe" with="100%" height="300px"
-        onloaded="alert('12345')">
-    </mf-loader>
-
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Cinema
+                </h1>
+                <h2 class="subtitle">
+                    Buy your ticket, a candy and pick a seat!
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <h2 class="title">Dale</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum
+                </p>
+                <div class="box">
+                    <mf-loader>
+                        Loading...
+                    </mf-loader>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Created for demo purposes only.
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>
