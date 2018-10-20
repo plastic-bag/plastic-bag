@@ -1,0 +1,20 @@
+<article id="html-fragment-example" class="message is-danger">
+    <div class="message-header">
+        HTML Fragment Example
+    </div>
+    <div class="message-body">
+        When it is loaded, its script tag is executed by the <strong>mf-loader</strong>, changing the message box color
+        to green and setting a event in this <button class="button is-small">button</button> to change its own color
+        too.
+    </div>
+</article>
+<script>
+    var example = document.getElementById('html-fragment-example');
+    example.classList.add('is-success');
+    example.classList.remove('is-danger');
+
+    var button = example.getElementsByTagName('button')[0];
+    button.addEventListener('click', function () {
+        button.classList.toggle('is-success');
+    });
+</script>
