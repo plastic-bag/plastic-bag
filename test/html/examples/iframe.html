@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/bulma.css">
+    <title>IFrame Example</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var button = document.getElementsByTagName('button')[0];
+            button.addEventListener('click', function () {
+                button.classList.toggle('is-success');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <article id="iframe-example" class="message is-success">
+        <div class="message-header">
+            IFrame Example
+        </div>
+        <div class="message-body">
+            It sets a event in this <button class="button is-small">button</button> to change its own color.
+        </div>
+    </article>
+</body>
+
+</html>
