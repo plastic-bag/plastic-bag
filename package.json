@@ -34,6 +34,10 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.1",
+    "wdio-browserstack-service": "^0.1.16",
+    "wdio-docker-service": "^1.5.0",
+    "wdio-mocha-framework": "^0.6.3",
+    "webdriverio": "^4.13.2",
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
