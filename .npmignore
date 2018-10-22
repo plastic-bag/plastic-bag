@@ -1,0 +1,6 @@
+.DS_Store
+doc
+node_modules
+.vscode
+errorShots
+*.log
