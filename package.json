@@ -1,6 +1,6 @@
 {
-  "name": "micro-frontends",
-  "version": "0.0.1",
+  "name": "plastic-bag",
+  "version": "0.0.2",
   "description": "A library to work with micro frontends.",
   "author": "Thiago da Rosa de Bustamante <thiago@cruxframework.org>",
   "keywords": [
@@ -9,8 +9,8 @@
     "Web components",
     "micro frontend"
   ],
-  "main": "./dist/micro-frontend.js",
-  "typings": "./dist/micro-frontend.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/plastic-bag.d.ts",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --env.test --port 8001 --devtool=inline-source-map --debug",
@@ -48,9 +48,6 @@
   },
   "bugs": {
     "url": "https://github.com/thiagobustamante/micro-frontend/issues"
-  },
-  "directories": {
-    "lib": "dist"
   },
   "dependencies": {
     "es6-promise": "^4.2.5",
