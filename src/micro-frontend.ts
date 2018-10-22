@@ -27,7 +27,6 @@ export class AppLoader extends HTMLElement {
     if (this.injectionType !== value) {
       this.injectionType = value;
       this.injector = null;
-      this.reload();
     }
   }
 
