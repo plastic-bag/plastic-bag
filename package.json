@@ -20,7 +20,7 @@
     "format": "prettier --write '{webpack*.js,{src,test}/**/*.{ts,js}}'",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "prepublish": "npm run build",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/wdio ./wdio.conf.js",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/wdio ./wdio.conf.js"
   },
   "devDependencies": {
     "@types/node": "^10.10.0",
