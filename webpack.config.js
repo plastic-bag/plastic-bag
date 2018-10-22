@@ -4,8 +4,8 @@ module.exports = {
   mode: 'production',
   context: __dirname + '/src',
   entry: {
-    lib: [
-      './micro-frontend.ts',
+    index: [
+      './plastic-bag.ts',
       './injectors/script/index.ts',
       './injectors/iframe/index.ts',
       './injectors/html-fragment/index.ts',

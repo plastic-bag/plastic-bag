@@ -1,6 +1,6 @@
 'use strict';
 
-import { AppLoader } from '../micro-frontend';
+import { AppLoader } from '../plastic-bag';
 
 export abstract class ContentInjector {
   public injected: boolean;

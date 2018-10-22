@@ -122,6 +122,6 @@ export class AppLoader extends HTMLElement {
   }
 }
 
-if (!customElements.get || !customElements.get('mf-loader')) {
-  customElements.define('mf-loader', AppLoader);
+if (!customElements.get || !customElements.get('plastic-bag')) {
+  customElements.define('plastic-bag', AppLoader);
 }

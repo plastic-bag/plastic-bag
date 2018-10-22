@@ -1,6 +1,6 @@
 'use strict';
 
-import { AppLoader } from '../../micro-frontend';
+import { AppLoader } from '../../plastic-bag';
 import { ContentInjector, ContentInjectorRegistry } from '../injector';
 import { FrameHandler } from './frame-state';
 
