@@ -29,21 +29,16 @@ require('plastic-bag');
 <script src="https://unpkg.com/plastic-bag/dist/index.js" />
 ```
 
-## Example
+## Examples
 
 ```html
-<plastic-bag type="html-fragment" src="/html-fragment.html">
-</plastic-bag>
-```
-
-```html
-<plastic-bag type="script" src="/test/html/examples/script.js">
+<plastic-bag type="script" src="/app.js">
     <div id="app-example">Loading...</div>
 </plastic-bag>
 ```
 
 ```html
-<plastic-bag type="iframe" src="/test/html/examples/iframe.html">
+<plastic-bag type="html-fragment" src="/header.html">
 </plastic-bag>
 ```
 
