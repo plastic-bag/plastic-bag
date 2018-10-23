@@ -1,4 +1,4 @@
-# Plasic Bag
+# Plastic Bag
 
 [![npm version](https://badge.fury.io/js/plastic-bag.svg)](https://badge.fury.io/js/plastic-bag)
 [![Build Status](https://travis-ci.org/plastic-bag/plastic-bag.svg?branch=master)](https://travis-ci.org/plastic-bag/plastic-bag)
