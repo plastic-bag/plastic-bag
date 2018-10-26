@@ -1,17 +1,26 @@
-var assert = require('assert');
+'use strict';
 
-const itBehavesLikeExample = url => ({ setUp, example }) => {
-  const button = () => $(example).element('button');
+import * as assert from 'assert';
 
-  describe(example, () => {
+interface Test {
+  example: string;
+  setUp?: () => void;
+}
+
+const itBehavesLikeExample = (url: string) => (test: Test) => {
+  const button = () => $(test.example).element('button');
+
+  describe(test.example, () => {
     before(() => {
       browser.url(url);
-      setUp && setUp();
+      if (test.setUp) {
+        test.setUp();
+      }
     });
 
     context('on start', () => {
-      it(`shows only an example of ${example}`, () => {
-        assert.equal(browser.elements(example).value.length, 1);
+      it(`shows only an example of ${test.example}`, () => {
+        assert.equal(browser.elements(test.example).value.length, 1);
       });
 
       it('has a button with default state', () => {
