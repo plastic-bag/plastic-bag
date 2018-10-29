@@ -59,3 +59,9 @@ Each `type` uses a different strategy to load the application source. Default va
 ### Content
 
 The content will be displayed as soon the tag is attatched.
+
+## Compatibility
+
+We are working on browser compatibility tests with BrowserStack.
+
+![BrowserSatck Logo](images/browserstack-logo-600x315.png)
