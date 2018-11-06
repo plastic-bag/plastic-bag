@@ -11,7 +11,7 @@ const local = {
 
 exports.config = Object.assign(
   {
-    specs: ['./test/browsers/**/*.ts'],
+    specs: ['./test/**/*.ts'],
     screenshotPath: './errorShots/',
     baseUrl: 'http://localhost:8001',
     framework: 'mocha',

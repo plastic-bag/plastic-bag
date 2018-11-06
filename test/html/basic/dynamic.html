@@ -4,10 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./assets/bulma.css">
-    <script src="./assets/webcomponents-lite.js"></script>
-    <script type="text/javascript" src="../../index.js"></script>
+    <link rel="stylesheet" href="../assets/bulma.css">
+    <script src="../assets/webcomponents-lite.js"></script>
+    <script type="text/javascript" src="../../../index.js"></script>
     <title>Examples</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var content = document.getElementsByClassName('content')[0];
+
+            function createExample(type, src, body) {
+                var box = document.createElement('div');
+                box.setAttribute('class', 'box');
+
+                var loader = document.createElement('plastic-bag');
+                loader.setAttribute('type', type);
+                loader.setAttribute('src', src);
+                if (body) {
+                    loader.innerHTML = body;
+                }
+
+                box.appendChild(loader);
+
+                return box;
+            }
+
+            content.appendChild(createExample('html-fragment', '/test/html/examples/html-fragment.html'));
+            content.appendChild(createExample('script', '/test/html/examples/script.js', '<div id="script-example-wrapper"></div>'));
+            content.appendChild(createExample('iframe', '/test/html/examples/iframe.html'));
+        });
+    </script>
 </head>
 
 <body>
@@ -31,18 +56,6 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum
                 </p>
-                <div class="box">
-                    <plastic-bag type="html-fragment" src="/test/html/examples/html-fragment.html"></plastic-bag>
-                </div>
-                <div class="box">
-                    <plastic-bag type="script" src="/test/html/examples/script.js">
-                        <div id="script-example-wrapper">Loading...</div>
-                    </plastic-bag>
-                </div>
-                <div class="box">
-                    <plastic-bag type="iframe" src="/test/html/examples/iframe.html">
-                    </plastic-bag>
-                </div>
             </div>
         </div>
     </section>

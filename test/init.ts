@@ -42,7 +42,7 @@ const itBehavesLikeExample = (url: string) => (test: Test) => {
   });
 };
 
-['/test/html/index.html', '/test/html/dynamic.html'].forEach(url => {
+['/test/html/basic/static.html', '/test/html/basic/dynamic.html'].forEach(url => {
   describe('Examples -', () => {
     const itBehavesLikeBasicExample = itBehavesLikeExample(url);
 
