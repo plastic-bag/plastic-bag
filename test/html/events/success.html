@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/bulma.css">
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const elements = document.querySelectorAll('plastic-bag');
+      elements.forEach(function(element) {
+        element.addEventListener('loaded', function(event) {
+          const message = document.createElement('li');
+          message.innerHTML = element.type;
+          document.getElementById("messages").appendChild(message);
+        })
+      })
+    })
+    </script>
+    <script src="../assets/webcomponents-lite.js"></script>
+    <script type="text/javascript" src="../../../index.js"></script>
+    <title>Examples</title>
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Examples
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <h2 class="title">Dale</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum
+                </p>
+                <ul id="messages">
+                </ul>
+                <div class="box">
+                    <plastic-bag type="html-fragment" src="/test/html/examples/html-fragment.html"></plastic-bag>
+                </div>
+                <div class="box">
+                    <plastic-bag type="script" src="/test/html/examples/script.js">
+                        <div id="script-example-wrapper">Loading...</div>
+                    </plastic-bag>
+                </div>
+                <div class="box">
+                    <plastic-bag type="iframe" src="/test/html/examples/iframe.html">
+                    </plastic-bag>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                Created for demo purposes only.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
