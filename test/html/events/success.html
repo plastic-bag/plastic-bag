@@ -12,7 +12,7 @@
         element.addEventListener('loaded', function(event) {
           const message = document.createElement('li');
           message.innerHTML = element.type;
-          document.getElementById("messages").appendChild(message);
+          document.getElementById("loaded-messages").appendChild(message);
         })
       })
     })
@@ -43,7 +43,7 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum
                 </p>
-                <ul id="messages">
+                <ul id="loaded-messages">
                 </ul>
                 <div class="box">
                     <plastic-bag type="html-fragment" src="/test/html/examples/html-fragment.html"></plastic-bag>

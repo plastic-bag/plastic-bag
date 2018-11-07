@@ -2,26 +2,18 @@
 
 import * as assert from 'assert';
 
-const itBehavesLikeExample = (url: string) => (example: string) => {
-  describe(example, () => {
-    beforeEach(() => {
-      browser.url(url);
-    })
+const strategies = ['html-fragment', 'script', 'iframe']
 
-    it('renders message after event loaded has been dispatched', () => {
-      browser.waitUntil(() => browser.getText('#messages') !== '');
+describe('Events - loaded', () => {
+  beforeEach(() => {
+    browser.url('/test/html/events/success.html')
+  });
 
-      assert(new RegExp(example).test(browser.getText('#messages')));
+  strategies.forEach((strategy) => {
+    it(`renders message after event has been dispatched`, () => {
+      const messagesSelector = `#loaded-messages`;
+
+      assert(new RegExp(strategy).test(browser.getText(messagesSelector)));
     });
-  });
-};
-
-['/test/html/events/success.html'].forEach(url => {
-  describe(`Events - ${url}`, () => {
-    const itBehavesLikeBasicExample = itBehavesLikeExample(url);
-
-    itBehavesLikeBasicExample('html-fragment');
-    itBehavesLikeBasicExample('script');
-    itBehavesLikeBasicExample('iframe');
-  });
-});
+  })
+})
