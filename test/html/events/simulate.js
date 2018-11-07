@@ -6,5 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
       message.innerHTML = element.type;
       document.getElementById('loaded-messages').appendChild(message);
     });
+
+    element.addEventListener('error', function(event) {
+      const message = document.createElement('li');
+      message.innerHTML = element.type;
+      document.getElementById('error-messages').appendChild(message);
+    });
   });
 });
