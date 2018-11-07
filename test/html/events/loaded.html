@@ -5,18 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../assets/bulma.css">
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const elements = document.querySelectorAll('plastic-bag');
-      elements.forEach(function(element) {
-        element.addEventListener('loaded', function(event) {
-          const message = document.createElement('li');
-          message.innerHTML = element.type;
-          document.getElementById("loaded-messages").appendChild(message);
-        })
-      })
-    })
-    </script>
+    <script src="./simulate.js"></script>
     <script src="../assets/webcomponents-lite.js"></script>
     <script type="text/javascript" src="../../../index.js"></script>
     <title>Examples</title>
