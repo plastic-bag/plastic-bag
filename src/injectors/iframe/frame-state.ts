@@ -7,11 +7,22 @@ export class FrameHandler {
     this.frameElement = frameElement;
   }
 
-  public async waitForFrameLoad(timeout?: number) {
-    return new Promise<void>((resolve, reject) => {
-      if (!timeout) {
-        timeout = 60 * 1000; // 1 min for default timeout;
+  public async waitForFrameLoad() {
+    return Promise.all([this.checkHeaders(), this.checkFrameLoad()]);
+  }
+
+  private checkHeaders(): Promise<void> {
+    return fetch(this.frameElement.src, { method: 'HEAD' }).then(response => {
+      if (!response.ok) {
+        throw new Error(`${response.status} - ${response.statusText}`);
       }
+    });
+  }
+
+  static timeout = 60 * 1000; // 1 min for default timeout
+
+  private checkFrameLoad() {
+    return new Promise<void>((resolve, reject) => {
       const contentLoaded = () => {
         if (timeoutTimer) {
           clearTimeout(timeoutTimer);
@@ -29,9 +40,13 @@ export class FrameHandler {
       const timeoutTimer = setTimeout(() => {
         clearInterval(checkFrameInterval);
         reject(
-          new Error(`Timeout error. The frame did not load after ${timeout} ms`)
+          new Error(
+            `Timeout error. The frame did not load after ${
+              FrameHandler.timeout
+            } ms`
+          )
         );
-      }, timeout);
+      }, FrameHandler.timeout);
     });
   }
 
