@@ -8,10 +8,10 @@ export class FrameHandler {
   }
 
   public async waitForFrameLoad() {
-    return Promise.all([this.checkHeaders(), this.checkFrameLoad()]);
+    return Promise.all([this.checkStatus(), this.checkFrameLoad()]);
   }
 
-  private checkHeaders(): Promise<void> {
+  private checkStatus() {
     return fetch(this.frameElement.src, { method: 'HEAD' }).then(response => {
       if (!response.ok) {
         throw new Error(`${response.status} - ${response.statusText}`);
