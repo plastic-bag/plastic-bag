@@ -5,3 +5,5 @@ node_modules
 .vscode
 errorShots
 *.log
+.nyc_output
+reports
