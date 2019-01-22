@@ -14,40 +14,15 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --env.test --port 8001 --devtool=inline-source-map --debug",
-    "start:coverage": "webpack-dev-server --env.test --port 8001 --devtool=inline-source-map --debug --config webpack.config.tests.js",
-    "build": "npm run clean && npm run webpack:polyfills",
+    "build": "npm run clean && npm run webpack && npm run webpack:es5 && npm run webpack:polyfills",
     "clean": "rimraf dist",
     "webpack": "webpack --config webpack.config.js",
     "webpack:polyfills": "webpack --config webpack.config.polyfills.js",
+    "webpack:es5": "webpack --config webpack.config.es5.js",
     "format": "prettier --write '{webpack*.js,src/**/*.ts,test/**/*.ts}'",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "prepublish": "npm run build",
-    "test": "concurrently --kill-others --success first -n server,test \"npm start\" \"cross-env NODE_ENV=test ./node_modules/.bin/wdio ./wdio.conf.js\"",
-    "test:coverage": "concurrently --kill-others --success first -n server,test \"npm run start:coverage\" \"cross-env NODE_ENV=coverage nyc ./node_modules/.bin/wdio ./wdio.conf.js\""
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100,
-    "statements": 100,
-    "include": [
-      "src/**/*.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": [
-      "text-summary",
-      "html"
-    ],
-    "cache": true,
-    "report-dir": "./reports/coverage",
-    "sourceMap": false,
-    "instrument": false
+    "test": "concurrently --kill-others --success first -n server,test \"npm start\" \"cross-env NODE_ENV=test ./node_modules/.bin/wdio ./wdio.conf.js\""
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
@@ -56,9 +31,6 @@
     "chromedriver": "^2.43.0",
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
-    "istanbul": "^0.4.5",
-    "istanbul-instrumenter-loader": "^3.0.1",
-    "nyc": "^13.1.0",
     "prettier": "^1.14.3",
     "rimraf": "^2.6.2",
     "source-map-support": "^0.5.9",
