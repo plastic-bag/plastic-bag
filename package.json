@@ -14,10 +14,12 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --env.test --port 8001 --devtool=inline-source-map --debug",
-    "build": "npm run clean && npm run webpack",
+    "build": "npm run clean && npm run webpack && npm run webpack:es5 && npm run webpack:polyfills",
     "clean": "rimraf dist",
     "webpack": "webpack --config webpack.config.js",
-    "format": "prettier --write '{webpack*.js,{src,test}/**/*.{ts,js}}'",
+    "webpack:polyfills": "webpack --config webpack.config.polyfills.js",
+    "webpack:es5": "webpack --config webpack.config.es5.js",
+    "format": "prettier --write '{webpack*.js,src/**/*.ts,test/**/*.ts}'",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "prepublish": "npm run build",
     "test": "concurrently --kill-others --success first -n server,test \"npm start\" \"cross-env NODE_ENV=test ./node_modules/.bin/wdio ./wdio.conf.js\""
