@@ -2,6 +2,7 @@
 
 import '@wdio/sync'
 import * as assert from 'assert';
+import 'mocha'
 
 interface Test {
   example: string;
@@ -9,7 +10,7 @@ interface Test {
 }
 
 const itBehavesLikeExample = (url: string) => (test: Test) => {
-  const button = () => $(test.example).element('button');
+  const button = () => $(`${test.example} button`);
 
   describe(test.example, () => {
     before(() => {
@@ -21,7 +22,7 @@ const itBehavesLikeExample = (url: string) => (test: Test) => {
 
     context('on start', () => {
       it(`shows only an example of ${test.example}`, () => {
-        assert.equal(browser.elements(test.example).value.length, 1);
+        assert.equal($$(test.example).length, 1);
       });
 
       it('has a button with default state', () => {
@@ -56,8 +57,8 @@ const itBehavesLikeExample = (url: string) => (test: Test) => {
     itBehavesLikeBasicExample({
       example: '#iframe-example',
       setUp: () => {
-        const frame = $('iframe').value;
-        browser.frame(frame);
+        const frame = $('iframe');
+        browser.switchToFrame(frame);
       },
     });
   });

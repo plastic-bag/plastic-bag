@@ -25,7 +25,7 @@
     "test": "concurrently --kill-others --success first -n server,test \"npm start\" \"cross-env NODE_ENV=test ./node_modules/.bin/wdio ./wdio.conf.js\""
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.5",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.1",
     "@types/webdriverio": "^5.0.0",
     "@wdio/cli": "^5.11.13",
