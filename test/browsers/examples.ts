@@ -1,5 +1,6 @@
 'use strict';
 
+import '@wdio/sync'
 import * as assert from 'assert';
 
 interface Test {

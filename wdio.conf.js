@@ -1,5 +1,5 @@
 const local = {
-  port: '9515',
+  port: 9515,
   path: '/',
   capabilities: [
     {
@@ -18,13 +18,12 @@ exports.config = Object.assign(
     reporters: ['spec'],
     mochaOpts: {
       ui: 'bdd',
-      compilers: ['ts:ts-node/register'],
-      requires: ['source-map-support/register'],
+      require: ['tsconfig-paths/register'],
       timeout: 60000
     },
-    onPrepare: function (config, capabilities) {
+    before: function () {
       console.log('Registering typescript')
-      require('ts-node/register');
+      require('ts-node').register({ files: true });
     }
   },
   local
