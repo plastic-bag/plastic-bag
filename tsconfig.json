@@ -22,7 +22,8 @@
         "sourceMap": true,
         "strict": true,
         "strictNullChecks": false,
-        "target": "es2015"
+        "target": "es2015",
+        "types": ["node"]
     },
     "include": [
         "src/**/*.ts"
