@@ -63,3 +63,10 @@ const itBehavesLikeExample = (url: string) => (test: Test) => {
     });
   });
 });
+
+describe.only('With ShadowDOM', () => {
+  it('adds a shadowRoot in plastic-bag element', () => {
+    browser.url('/test/html/index.html');
+    assert.notStrictEqual($('.with-shadow-dom plastic-bag').getAttribute('shadowRoot'), null);
+  });
+});
