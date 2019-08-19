@@ -37,7 +37,7 @@
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
     "prettier": "^1.14.3",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.0",
     "source-map-support": "^0.5.9",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
