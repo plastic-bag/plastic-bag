@@ -51,7 +51,7 @@
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^5.11.13",
     "webpack": "^4.19.0",
-    "webpack-cli": "^3.1.0",
+    "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.1.14"
   },
   "repository": {
