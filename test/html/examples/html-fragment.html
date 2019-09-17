@@ -14,7 +14,11 @@
     example.classList.remove('is-danger');
 
     var button = example.getElementsByTagName('button')[0];
+    console.log(button);
     button.addEventListener('click', function () {
         button.classList.toggle('is-success');
+    });
+    root.addEventListener('click', function(event) {
+      console.log(event);
     });
 </script>

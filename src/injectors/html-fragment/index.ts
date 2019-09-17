@@ -16,7 +16,7 @@ export class HTMLInjector extends ContentInjector {
   public async inject() {
     this.contentElement = document.createElement('div');
     this.contentElement.className = 'content';
-    this.loader.appendChild(this.contentElement);
+    this.loader.rootElement.appendChild(this.contentElement);
     this.contentElement.innerHTML = await this.getContent();
     await this.scriptTagHandler.evaluateScripts(this.contentElement);
     this.contentInjected = true;

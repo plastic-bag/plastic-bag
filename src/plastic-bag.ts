@@ -5,7 +5,7 @@ import { Attributes, Events } from './utils/webcomponent';
 
 export class AppLoader extends HTMLElement {
   static get observedAttributes() {
-    return ['type', 'onloaded', 'onerror', 'width', 'height', 'src'];
+    return ['type', 'onloaded', 'onerror', 'width', 'height', 'src', 'with-shadow-dom'];
   }
 
   get src(): string {
@@ -46,11 +46,30 @@ export class AppLoader extends HTMLElement {
     this.style.height = value;
   }
 
+  get withShadowDOM(): boolean {
+    return this.shadowDOM;
+  }
+
+  set withShadowDOM(value: boolean) {
+    if (this.shadowDOM !== value) {
+      if (value) {
+        this.attachShadow({ mode: 'open' });
+      } else {
+        throw Error('Once created we can\'t remove a shadowDOM.')
+      }
+    }
+  }
+
+  get rootElement() {
+    return this.shadowRoot ? this.shadowRoot : this
+  }
+
   private initialized: boolean = false;
   private injectionType: string;
   private injector: ContentInjector;
   private source: string;
   private loaded: boolean = false;
+  private shadowDOM: boolean = false;
 
   constructor() {
     super();
@@ -74,6 +93,8 @@ export class AppLoader extends HTMLElement {
   ) {
     if (/^on/.test(attrName)) {
       Events.addEvent(this, attrName.slice(2), newValue);
+    } else if (attrName === 'with-shadow-dom') {
+      this.withShadowDOM = newValue !== false;
     } else if (attrName === 'src') {
       this.src = newValue;
     } else if (attrName === 'type') {
@@ -114,6 +135,7 @@ export class AppLoader extends HTMLElement {
       }
     }
   }
+
   private getInjector(): ContentInjector {
     if (!this.injector) {
       this.injector = ContentInjectorRegistry.createInjector(this);
