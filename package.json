@@ -34,7 +34,7 @@
     "@wdio/spec-reporter": "^5.12.1",
     "@wdio/sync": "^5.12.1",
     "chromedriver": "^77.0.0",
-    "concurrently": "^4.0.1",
+    "concurrently": "^5.0.0",
     "cross-env": "^6.0.0",
     "prettier": "^1.14.3",
     "rimraf": "^3.0.0",
