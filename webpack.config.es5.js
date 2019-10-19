@@ -2,7 +2,6 @@
 
 var base = require('./webpack.config');
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = Object.assign(base, {
   output: {
