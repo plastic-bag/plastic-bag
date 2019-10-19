@@ -10,7 +10,7 @@
             "es5",
             "es2015.promise"
         ],
-        "module": "amd",
+        "module": "commonjs",
         "moduleResolution": "node",
         "newLine": "LF",
         "noFallthroughCasesInSwitch": true,
