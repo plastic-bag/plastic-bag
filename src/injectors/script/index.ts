@@ -16,7 +16,7 @@ export class ScriptInjector extends ContentInjector {
     this.scriptElement = document.createElement('script');
     this.scriptElement.type = 'text/javascript';
     this.scriptElement.src = this.loader.src;
-    this.loader.appendChild(this.scriptElement);
+    this.loader.rootElement.appendChild(this.scriptElement);
     await new ScriptHandler(this.scriptElement).waitForScriptLoad();
     this.contentInjected = true;
   }

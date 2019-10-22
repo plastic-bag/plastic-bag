@@ -64,9 +64,38 @@ const itBehavesLikeExample = (url: string) => (test: Test) => {
   });
 });
 
-describe.only('With ShadowDOM', () => {
-  it('adds a shadowRoot in plastic-bag element', () => {
-    browser.url('/test/html/index.html');
-    assert.notStrictEqual($('.with-shadow-dom plastic-bag').getAttribute('shadowRoot'), null);
+describe('With ShadowDOM', () => {
+  beforeEach(() => {
+    browser.url('/test/html/shadow-dom.html');
   });
+
+  context('html-fragment', () => {
+    const subject = () => $('.with-shadow-dom plastic-bag[type=html-fragment]');
+    it('adds a shadowRoot in plastic-bag element', () => {    
+      assert.notStrictEqual(subject().getProperty('shadowRoot'), null);
+    });
+
+    context('on click', () => {
+      const button = () => subject().shadow$('button');
+      beforeEach(() => {
+        button().click();
+      });
+
+      it('changes button to success', () => {
+        const classList = button().getAttribute('class');
+        assert.equal(classList, 'button is-small is-success');
+      });
+    });
+  });
+
+  context('script', () => {
+    const subject = () => $('.with-shadow-dom plastic-bag[type=script]');
+    it('adds a shadowRoot in plastic-bag element', () => {    
+      assert.notStrictEqual(subject().getProperty('shadowRoot'), null);
+    });
+
+    it('renders everything inside a shadowRoot', () => {
+      assert.strictEqual(subject().$('#script-example-wrapper'), null);
+    })
+  })
 });

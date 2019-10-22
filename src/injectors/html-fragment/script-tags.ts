@@ -21,6 +21,7 @@ export class ScriptTagHandler {
    * @param element the base element
    */
   public async evaluateScripts(element: HTMLElement) {
+    element.insertAdjacentElement('afterbegin', this.getRootElementScript(element))
     if (!this.scripts) {
       this.scripts = new Array<HTMLScriptElement>();
     }
@@ -34,11 +35,27 @@ export class ScriptTagHandler {
     }
   }
 
+  private getRootElementScript(root: HTMLElement) {
+    const isShadow = !document.contains(root)
+    const getRootElementScript = document.createElement('script');
+    getRootElementScript.async = false;
+    if (isShadow) {
+      const host = (root.parentNode as ShadowRoot).host
+      if (!host.id) {
+        throw Error("A plastic-bag element with shadow-root needs an id");
+      }
+      getRootElementScript.innerText = `function getRoot(){ return document.getElementById('${host.id}').shadowRoot;}`; 
+    } else {
+      getRootElementScript.innerText = "function getRoot(){ return document;}"; 
+    }
+
+    return getRootElementScript
+  }
+
   private async processNextScript() {
     if (this.scripts.length > 0) {
       const script: HTMLScriptElement = this.scripts.shift();
       const cloneScript: HTMLScriptElement = this.cloneScript(script);
-
       await runInNextTick(async () =>
         this.processScriptTag(script, cloneScript)
       );

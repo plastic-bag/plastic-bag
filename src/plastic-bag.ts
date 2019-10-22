@@ -54,6 +54,7 @@ export class AppLoader extends HTMLElement {
     if (this.shadowDOM !== value) {
       if (value) {
         this.attachShadow({ mode: 'open' });
+        this.shadowDOM = value;
       } else {
         throw Error('Once created we can\'t remove a shadowDOM.')
       }
