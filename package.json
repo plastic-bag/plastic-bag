@@ -33,7 +33,7 @@
     "@wdio/mocha-framework": "^5.16.15",
     "@wdio/spec-reporter": "^5.16.11",
     "@wdio/sync": "^5.17.0",
-    "chromedriver": "^79.0.0",
+    "chromedriver": "^80.0.0",
     "concurrently": "^5.0.2",
     "cross-env": "^7.0.0",
     "prettier": "^1.19.1",
