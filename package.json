@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "es6-promise": "^4.2.8",
-    "tslib": "^1.11.1",
+    "tslib": "^1.11.2",
     "whatwg-fetch": "^3.0.0"
   }
 }
